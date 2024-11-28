@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const FormSection = () => {
   const [formData, setFormData] = useState({
     multiple_transactions: 1,
-    mismatch_between_ip_and_location: 0,
+    mismatch_between_ip_and_location: "",
     customer_location: "",
     customer_tier: "",
     payment_method: "",
@@ -12,7 +12,7 @@ const FormSection = () => {
     product_category: "",
     transaction_amount: "",
     purchase_history: "",
-    high_risk_countries: 0,
+    high_risk_countries: "",
     customer_age: "",
   });
 
@@ -107,6 +107,20 @@ const FormSection = () => {
               <option value="Other">Other</option>
               <option value="Canada">Canada</option>
             </select>
+          </div>
+
+          {/* Customer Age */}
+          <div>
+            <label className="block text-slate-500">Customer Age</label>
+            <input
+              type="number"
+              name="customer_age"
+              value={formData.customer_age}
+              onChange={handleChange}
+              required
+              className="input-style"
+              min="0"
+            />
           </div>
 
           {/* Customer Tier */}
@@ -206,7 +220,9 @@ const FormSection = () => {
 
           {/* Purchase History */}
           <div>
-            <label className="block text-slate-500">Purchase History</label>
+            <label className="block text-slate-500">
+              Purchase History (number)
+            </label>
             <input
               type="number"
               name="purchase_history"
@@ -218,18 +234,68 @@ const FormSection = () => {
             />
           </div>
 
-          {/* Customer Age */}
-          <div>
-            <label className="block text-slate-500">Customer Age</label>
-            <input
-              type="number"
-              name="customer_age"
-              value={formData.customer_age}
-              onChange={handleChange}
-              required
-              className="input-style"
-              min="0"
-            />
+          {/* Mismatch Between IP and Location */}
+          <div className="flex flex-col">
+            <label className="block text-slate-500">
+              Mismatch Between IP and Location
+            </label>
+            <div className="flex items-center gap-x-6">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="mismatch_between_ip_and_location"
+                  value="1"
+                  checked={formData.mismatch_between_ip_and_location === "1"}
+                  onChange={handleChange}
+                  required
+                  className="h-5 w-5 text-orange-500 focus:ring-orange-500"
+                />
+                <label className="text-slate-600 font-semibold">Yes</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="mismatch_between_ip_and_location"
+                  value="0"
+                  checked={formData.mismatch_between_ip_and_location === "0"}
+                  onChange={handleChange}
+                  required
+                  className="h-5 w-5 text-orange-500 focus:ring-orange-500"
+                />
+                <label className="text-slate-600 font-semibold">No</label>
+              </div>
+            </div>
+          </div>
+
+          {/* High-Risk Countries */}
+          <div className="flex flex-col">
+            <label className="block text-slate-500">High-Risk Countries</label>
+            <div className="flex items-center gap-x-6">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="high_risk_countries"
+                  value="1"
+                  checked={formData.high_risk_countries === "1"}
+                  onChange={handleChange}
+                  required
+                  className="h-5 w-5 text-orange-500 focus:ring-orange-500"
+                />
+                <label className="text-slate-600 font-semibold">Yes</label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="high_risk_countries"
+                  value="0"
+                  checked={formData.high_risk_countries === "0"}
+                  onChange={handleChange}
+                  required
+                  className="h-5 w-5 text-orange-500 focus:ring-orange-500"
+                />
+                <label className="text-slate-600 font-semibold">No</label>
+              </div>
+            </div>
           </div>
 
           {/* Submit Button */}
