@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 const FormSection = () => {
   const [formData, setFormData] = useState({
-    multiple_transactions: 1,
+    multiple_transactions: "",
     mismatch_between_ip_and_location: "",
     customer_location: "",
     customer_tier: "",
@@ -215,6 +215,23 @@ const FormSection = () => {
               required
               className="input-style"
               min="0"
+            />
+          </div>
+
+          {/* Multiple Transactions */}
+          <div className="flex flex-col">
+            <label className="block text-slate-500">
+              Multiple Transactions (Enter Count)
+            </label>
+            <input
+              type="number"
+              name="multiple_transactions"
+              value={formData.multiple_transactions}
+              onChange={handleChange}
+              required
+              min={0}
+              className="input-style"
+              placeholder="Enter number of transactions"
             />
           </div>
 
