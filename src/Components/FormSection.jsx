@@ -231,7 +231,6 @@ const FormSection = () => {
               required
               min={0}
               className="input-style"
-              placeholder="Enter number of transactions"
             />
           </div>
 
