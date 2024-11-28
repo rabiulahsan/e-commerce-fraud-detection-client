@@ -248,7 +248,7 @@ const FormSection = () => {
           <div className="mt-6 text-center ">
             <p className="text-slate-500 font-semibold text-lg">
               Transaction is{" "}
-              <span className="text-lg font-bold text-orange-500">
+              <span className="text-lg font-bold text-sky-500">
                 {predictionResult}
               </span>
             </p>
